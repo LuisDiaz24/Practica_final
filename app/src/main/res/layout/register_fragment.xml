@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:background="@color/grey"
+        android:background="@color/white"
         android:orientation="vertical">
 
         <ProgressBar
@@ -41,6 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
+            android:textColor="@color/black"
             android:text="@string/register_title"
             android:textSize="25sp"
             android:textStyle="bold" />

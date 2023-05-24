@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/grey" /> <!-- Color de fondo del LinearLayout -->
-    <corners android:radius="10dp" /> <!-- Radio de las esquinas en dp -->
+    <solid android:color="#5A379C" /> <!-- Color de fondo del LinearLayout -->
+    <corners android:radius="60dp" /> <!-- Radio de las esquinas en dp -->
 </shape>
