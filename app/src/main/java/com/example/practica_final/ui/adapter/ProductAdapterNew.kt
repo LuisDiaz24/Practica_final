@@ -11,7 +11,7 @@ import com.example.practica_final.domain.Product
 class ProductAdapterNew (private val productList: List<Product>) : RecyclerView.Adapter<ProductAdapterNew.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            // Declarar los elementos de la vista para mostrar los datos del producto (nombre, precio, etc.)
+
             val productNameTextView: TextView = itemView.findViewById(R.id.txt_product_name)
             val productPriceTextView: TextView = itemView.findViewById(R.id.txt_product_price)
         }
@@ -24,7 +24,6 @@ class ProductAdapterNew (private val productList: List<Product>) : RecyclerView.
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val product = productList[position]
 
-            // Asignar los valores del producto a los elementos de la vista correspondientes
             holder.productNameTextView.text = product.title
             holder.productPriceTextView.text = "$${product.price}"
         }

@@ -1,14 +1,12 @@
 package com.example.practica_final.ui.products
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.practica_final.R
-import com.example.practica_final.databinding.FragmentShoppingcartBinding
 import com.example.practica_final.domain.Product
-import com.example.practica_final.domain.ProductAdapter
-import com.example.practica_final.domain.ProductProvider.Companion.productList
 import com.example.practica_final.ui.adapter.ProductAdapterNew
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -17,9 +15,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class ShoppingCartActivity : AppCompatActivity() {
-
-    private var _binding: FragmentShoppingcartBinding? = null
-    private val binding get() = _binding!!
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ProductAdapterNew
@@ -30,10 +25,6 @@ class ShoppingCartActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.lst_shopingcart)
         recyclerView.layoutManager = LinearLayoutManager(this)
-
-        // No es necesario crear el adaptador y asignarlo aquí
-
-        // Llamar a la función para obtener los productos del carrito y mostrarlos en el RecyclerView
         fetchCartProducts()
     }
 
@@ -54,20 +45,14 @@ class ShoppingCartActivity : AppCompatActivity() {
                     }
                 }
 
-                // Crear una instancia de ProductAdapterNew y pasar la lista de productos
                 adapter = ProductAdapterNew(productList)
                 recyclerView.adapter = adapter as RecyclerView.Adapter<RecyclerView.ViewHolder>
                 adapter.notifyDataSetChanged()
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Manejar el error en caso de que la lectura de los productos del carrito falle
+                Toast.makeText(this@ShoppingCartActivity, "Error al leer los datos de carrito", Toast.LENGTH_SHORT).show()
             }
         })
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
     }
 }

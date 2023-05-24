@@ -29,10 +29,9 @@ class ProductViewHolder (view: View): RecyclerView.ViewHolder(view){
         priceTextView.text = "$${productModel.price}"
 
         btnBuyView.setOnClickListener { view ->
-            // Obtén los detalles del producto seleccionado
-            val producto = productModel// Obtén los detalles del producto seleccionado
 
-            // Agrega el producto al carrito del usuario en Firebase Realtime Database
+            val producto = productModel
+
             val firebaseDatabase = FirebaseDatabase.getInstance()
             val user = FirebaseAuth.getInstance().currentUser
             val userId = user?.uid
@@ -40,12 +39,8 @@ class ProductViewHolder (view: View): RecyclerView.ViewHolder(view){
             val nuevoProductoRef = cartRef.push()
             nuevoProductoRef.setValue(producto)
 
-            // Aquí puedes realizar cualquier otra acción necesaria después de agregar el producto al carrito,
-            // como mostrar un mensaje de éxito o redirigir al usuario a la vista del carrito.
-            // Por ejemplo:
             Toast.makeText(view.context, "Producto agregado al carrito", Toast.LENGTH_SHORT).show()
 
-            // Redirigir al usuario a la vista del carrito
             val intent = Intent(view.context, ShoppingCartActivity::class.java)
             view.context.startActivity(intent)
         }
