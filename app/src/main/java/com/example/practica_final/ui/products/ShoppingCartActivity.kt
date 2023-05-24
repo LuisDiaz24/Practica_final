@@ -31,14 +31,11 @@ class ShoppingCartActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.lst_shopingcart)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Crear una instancia de ProductAdapterNew y pasar la lista de productos
-        adapter = ProductAdapterNew(productList)
-        recyclerView.adapter = adapter as RecyclerView.Adapter<RecyclerView.ViewHolder>
+        // No es necesario crear el adaptador y asignarlo aquí
 
         // Llamar a la función para obtener los productos del carrito y mostrarlos en el RecyclerView
         fetchCartProducts()
     }
-
 
     private fun fetchCartProducts() {
         val firebaseDatabase = FirebaseDatabase.getInstance()
@@ -57,8 +54,9 @@ class ShoppingCartActivity : AppCompatActivity() {
                     }
                 }
 
-                // Pasar la lista de productos al adaptador y notificar los cambios
+                // Crear una instancia de ProductAdapterNew y pasar la lista de productos
                 adapter = ProductAdapterNew(productList)
+                recyclerView.adapter = adapter as RecyclerView.Adapter<RecyclerView.ViewHolder>
                 adapter.notifyDataSetChanged()
             }
 
@@ -67,6 +65,7 @@ class ShoppingCartActivity : AppCompatActivity() {
             }
         })
     }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

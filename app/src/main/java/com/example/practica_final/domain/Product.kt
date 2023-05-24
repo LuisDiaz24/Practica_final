@@ -14,4 +14,6 @@ data class Product(
     val category: String,
     val thumbnail: String,
     val images: List<String>
-) : Serializable
+) : Serializable {
+    constructor() : this(0, "", "", 0.0, 0.0, 0.0, 0, "", "", "", listOf())
+}
