@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -29,9 +30,7 @@ class ProductViewHolder (view: View): RecyclerView.ViewHolder(view){
         }
 
         btnProductDetail.setOnClickListener {
-            val action = R.id.navigation_detail
-            val actions = ProductListFragmentDirections.actionProductListFragmentToProductDetailFragment(productModel)
-            it.findNavController().navigate(action,productModel)
+            it.findNavController().navigate(R.id.navigation_detail, bundleOf("productModel" to  productModel))
         }
     }
 }

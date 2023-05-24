@@ -1,5 +1,6 @@
 package com.example.practica_final.ui.productdetail
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,12 +34,18 @@ class ProductDetailFragment : Fragment() {
         bindViews()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun bindViews() = with(binding) {
         arguments?.let {
             productModel = it.getSerializable("productModel") as Product?
             tvTitle.text = productModel?.title
             tvDescription.text = productModel?.description
-            tvRating.text = productModel?.rating.toString()
+            tvRating.text = "Rating: ${productModel?.rating.toString()}"
+            tvStock.text = "En stock: ${productModel?.stock.toString()}"
+            tvPrice.text = "Precio: $${productModel?.price}"
+            tvDiscount.text = "Descuento: %${productModel?.discountPercentage}"
+            tvCategory.text = "Category: ${productModel?.category}"
+            tvBrand.text = "Brand: ${productModel?.brand}"
             Picasso.get().load(productModel?.thumbnail).into(expandedImage)
         }
     }
