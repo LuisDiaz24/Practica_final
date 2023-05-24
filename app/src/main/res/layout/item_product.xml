@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+ xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="220dp"
-    android:orientation="vertical">
+    android:layout_height="245dp"
+    android:layout_margin="10dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/background_products"
+    android:orientation="horizontal"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="8dp">
 
     <ImageView
         android:id="@+id/expandedImage"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:fitsSystemWindows="true"
+        android:layout_margin="5dp"
+    android:layout_marginBottom="120dp"
         android:adjustViewBounds="true"
-        android:scaleType="centerCrop"/>
+        android:scaleType="fitCenter"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="65dp"
         android:orientation="horizontal">
 
         <TextView
@@ -22,40 +33,50 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:text="@string/txt_name_product"
             android:textColor="@color/black"
-            android:textSize="15sp"
-            android:gravity="center_horizontal"
-            android:text="@string/txt_name_product" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/txt_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:text="@string/txt_price"
             android:textColor="@color/black"
-            android:textSize="15sp"
-            android:gravity="center_horizontal"
-            android:text="@string/txt_price" />
+            android:textSize="15sp" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_gravity="bottom">
 
         <Button
-
             android:id="@+id/btn_buy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:layout_weight="1"
-            android:text="@string/buy_txt" />
+            android:background="@drawable/background_botton"
+            android:text="@string/buy_txt"
+            app:cornerRadius="30dp" />
 
         <Button
             android:id="@+id/btn_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:layout_weight="1"
-            android:text="@string/show_detail_txt" />
+            android:background="@drawable/background_botton"
+            android:text="@string/show_detail_txt"
+            app:cornerRadius="1dp" />
     </LinearLayout>
 
-</LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.login.RegisterFragment"
+    tools:context=".ui.login.RegisterActivity"
     android:orientation="vertical"
     android:layout_gravity="center">
 
@@ -33,7 +33,7 @@
             android:layout_height="99dp"
             android:layout_gravity="center_horizontal"
             android:layout_margin="5dp"
-            android:background="@color/blue"
+            android:background="@drawable/background_rounded"
             android:src="@drawable/fui_ic_anonymous_white_24dp" />
         <TextView
             android:id="@+id/textView"
@@ -110,7 +110,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="25dp"
-            android:background="@color/purple_500"
+            android:background="@drawable/background_login"
             android:gravity="center"
             android:text="@string/register_txt"
             android:textColor="@color/white"
