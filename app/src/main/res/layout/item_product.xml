@@ -65,7 +65,7 @@
             android:layout_weight="1"
             android:background="@drawable/background_botton"
             android:text="@string/buy_txt"
-            app:cornerRadius="30dp" />
+            />
 
         <Button
             android:id="@+id/btn_detail"
@@ -75,7 +75,7 @@
             android:layout_weight="1"
             android:background="@drawable/background_botton"
             android:text="@string/show_detail_txt"
-            app:cornerRadius="1dp" />
+            />
     </LinearLayout>
 
 
