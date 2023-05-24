@@ -37,6 +37,7 @@ class ShoppingCartActivity : AppCompatActivity() {
 
         fetchCartProducts()
     }
+
     private fun mostrarDialogoConfirmacion() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Confirmar compra")
@@ -80,7 +81,11 @@ class ShoppingCartActivity : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(this@ShoppingCartActivity, "Error al leer los datos de carrito", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@ShoppingCartActivity,
+                    "Error al leer los datos de carrito",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         })
     }

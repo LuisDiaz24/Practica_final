@@ -39,8 +39,6 @@ class ProductViewHolder (view: View): RecyclerView.ViewHolder(view){
             val nuevoProductoRef = cartRef.push()
             nuevoProductoRef.setValue(producto)
 
-            Toast.makeText(view.context, "Producto agregado al carrito", Toast.LENGTH_SHORT).show()
-
             val intent = Intent(view.context, ShoppingCartActivity::class.java)
             view.context.startActivity(intent)
         }

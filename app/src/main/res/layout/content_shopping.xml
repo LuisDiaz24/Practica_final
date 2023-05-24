@@ -9,7 +9,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lst_shopingcart"
         android:layout_width="match_parent"
-        android:layout_height="536dp"
+        android:layout_height="600dp"
         android:layout_marginBottom="10dp"
         android:nestedScrollingEnabled="true"
         android:orientation="vertical"

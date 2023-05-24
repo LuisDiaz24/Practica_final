@@ -21,12 +21,13 @@ class SecondActivity : AppCompatActivity() {
         setContentView(binding.root)
         replaceFragment(HomeFragment())
         binding.navView.setOnItemSelectedListener {
-            when(it.itemId){
+            when (it.itemId) {
                 R.id.navigation_home -> replaceFragment(HomeFragment())
                 R.id.navigation_shoppingcat -> {
                     val intent = Intent(this@SecondActivity, ShoppingCartActivity::class.java)
                     startActivity(intent)
                 }
+
                 R.id.navigation_detail -> replaceFragment(ProductDetailFragment())
                 R.id.navigation_logout -> {
                     FirebaseAuth.getInstance().signOut()
@@ -43,10 +44,10 @@ class SecondActivity : AppCompatActivity() {
         }
     }
 
-    private fun replaceFragment(fragment: Fragment){
+    private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragment_container_view,fragment)
+        fragmentTransaction.replace(R.id.fragment_container_view, fragment)
         fragmentTransaction.commit()
     }
 }
