@@ -14,6 +14,7 @@
     <string name="title_activity_second">SecondActivity</string>
     <string name="title_home">Productos</string>
     <string name="title_dashboard">Carrito</string>
+    <string name="title_sing_out">Sing Out</string>
     <string name="title_notifications">Detalle</string>
     <string name="buy_txt">Comprar</string>
     <string name="show_detail_txt">Ver detalle</string>

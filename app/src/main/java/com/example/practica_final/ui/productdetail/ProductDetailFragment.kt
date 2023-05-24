@@ -6,12 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.practica_final.databinding.FragmentDetailBinding
 import com.example.practica_final.domain.Product
-import com.example.practica_final.domain.ProductAdapter
-import com.example.practica_final.domain.ProductProvider
 import com.squareup.picasso.Picasso
 
 class ProductDetailFragment : Fragment() {

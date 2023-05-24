@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_shoppingcat"
-        android:name="com.example.practica_final.ui.products.ShoppingCartFragment"
+        android:name="com.example.practica_final.ui.products.ShoppingCartActivity"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_shoppingcart" />
 

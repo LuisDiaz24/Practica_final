@@ -33,7 +33,7 @@
         android:layout_margin="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="96dp"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:backgroundTint="#1C81D1"
         android:src="@drawable/ic_baseline_logout_24"
         app:layout_constraintBottom_toTopOf="@id/nav_view"

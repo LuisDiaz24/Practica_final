@@ -1,14 +1,18 @@
 package com.example.practica_final.domain
 
+import android.content.Intent
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.os.bundleOf
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.practica_final.R
+import com.example.practica_final.ui.products.ShoppingCartActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.squareup.picasso.Picasso
 
 class ProductViewHolder (view: View): RecyclerView.ViewHolder(view){
@@ -24,10 +28,28 @@ class ProductViewHolder (view: View): RecyclerView.ViewHolder(view){
         nameTextView.text = productModel.title
         priceTextView.text = "$${productModel.price}"
 
-        btnBuyView.setOnClickListener {
-            val action = R.id.navigation_shoppingcat
-            findNavController(it).navigate(action)
+        btnBuyView.setOnClickListener { view ->
+            // Obtén los detalles del producto seleccionado
+            val producto = productModel// Obtén los detalles del producto seleccionado
+
+            // Agrega el producto al carrito del usuario en Firebase Realtime Database
+            val firebaseDatabase = FirebaseDatabase.getInstance()
+            val user = FirebaseAuth.getInstance().currentUser
+            val userId = user?.uid
+            val cartRef = firebaseDatabase.getReference("carritos").child(userId.toString())
+            val nuevoProductoRef = cartRef.push()
+            nuevoProductoRef.setValue(producto)
+
+            // Aquí puedes realizar cualquier otra acción necesaria después de agregar el producto al carrito,
+            // como mostrar un mensaje de éxito o redirigir al usuario a la vista del carrito.
+            // Por ejemplo:
+            Toast.makeText(view.context, "Producto agregado al carrito", Toast.LENGTH_SHORT).show()
+
+            // Redirigir al usuario a la vista del carrito
+            val intent = Intent(view.context, ShoppingCartActivity::class.java)
+            view.context.startActivity(intent)
         }
+
 
         btnProductDetail.setOnClickListener {
             it.findNavController().navigate(R.id.navigation_detail, bundleOf("productModel" to  productModel))
